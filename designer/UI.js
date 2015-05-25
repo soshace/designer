@@ -2526,12 +2526,12 @@ function placeOrderHandler(id) {
     jQuery("#place-order-btn").button("reset");
 }
 
-window.onbeforeunload = function () {
-    if (!controlsModel.status().designSaved) {
-        return "By exiting this page all design changes will be lost. This window might also popup as a hickup - then just skip it and continue to have fun!";
-    } else {
-    }
-}
+//window.onbeforeunload = function () {
+//    if (!controlsModel.status().designSaved) {
+//        return "By exiting this page all design changes will be lost. This window might also popup as a hickup - then just skip it and continue to have fun!";
+//    } else {
+//    }
+//}
 
 /**
  * MODAL POPUP WINDOWS AND BUTTONS EVENTS END HERE

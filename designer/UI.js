@@ -2526,6 +2526,7 @@ function placeOrderHandler(id) {
     jQuery("#place-order-btn").button("reset");
 }
 
+//TODO: return on production
 //window.onbeforeunload = function () {
 //    if (!controlsModel.status().designSaved) {
 //        return "By exiting this page all design changes will be lost. This window might also popup as a hickup - then just skip it and continue to have fun!";

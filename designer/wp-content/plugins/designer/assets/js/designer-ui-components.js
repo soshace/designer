@@ -3,7 +3,7 @@ var designerUI = {
     productColorPicker: null,
     textFillColorPicker: null,
     textStrokeColorPicker: null,
-    textForm:null,
+    textForm: null,
     textFillColorPicker2: null,
     textStrokeColorPicker2: null,
     productsGallery: null,
@@ -21,7 +21,7 @@ var designerUI = {
             designerUI.activeTab.next('.dropdown-menu').hide();
             designerUI.activeTab.parent().removeClass('open');
             designerUI.activeTab = null;
-        }        
+        }
         jQuery('#designer-main-menu').removeClass('collapsed');
     },
 
@@ -33,7 +33,7 @@ var designerUI = {
             designerUI.activeTab.next('.dropdown-menu').show();
             designerUI.activeTab.parent().addClass('open');
             jQuery('#designer-main-menu').addClass('collapsed');
-            
+
             this.setFocusToTextTab();
         }
     },
@@ -56,7 +56,7 @@ var designerUI = {
     createColorPickers: function () {
         var deUI = designerUI;
         deUI.productColorPicker = jQuery('#product-color-picker');
-        deUI.productColorPicker.colorPicker({ container: jQuery('#product-color-btn'), isDropup: true, gap: 2 });
+        deUI.productColorPicker.colorPicker({container: jQuery('#product-color-btn'), isDropup: true, gap: 2});
 
         deUI.textFillColorPicker = jQuery('#text-fill-color-picker');
         deUI.textFillColorPicker.colorPicker({gap: 2});
@@ -65,22 +65,34 @@ var designerUI = {
         deUI.textStrokeColorPicker.colorPicker({gap: 2});
 
         deUI.graphicsColorPicker = jQuery('#graphics-color-picker');
-        deUI.graphicsColorPicker.colorPicker({ gap: 2 });
+        deUI.graphicsColorPicker.colorPicker({gap: 2});
 
         deUI.graphicsStrokeColorPicker = jQuery('#graphics-stroke-picker');
-        deUI.graphicsStrokeColorPicker.colorPicker({ gap: 2 });
+        deUI.graphicsStrokeColorPicker.colorPicker({gap: 2});
 
         deUI.graphicsFillColorPicker = jQuery('#graphics-fill-color-picker');
-        deUI.graphicsFillColorPicker.colorPicker({ gap: 2, container: deUI.graphicsFillColorPicker.parent(), isDropup: true });
+        deUI.graphicsFillColorPicker.colorPicker({
+            gap: 2,
+            container: deUI.graphicsFillColorPicker.parent(),
+            isDropup: true
+        });
 
         deUI.graphicsStrokeColorPicker = jQuery('#graphics-stroke-color-picker');
-        deUI.graphicsStrokeColorPicker.colorPicker({ gap: 2, container: deUI.graphicsStrokeColorPicker.parent(), isDropup: true });
+        deUI.graphicsStrokeColorPicker.colorPicker({
+            gap: 2,
+            container: deUI.graphicsStrokeColorPicker.parent(),
+            isDropup: true
+        });
 
         deUI.textFillColorPicker2 = jQuery('#text-fill-color-picker-2');
-        deUI.textFillColorPicker2.colorPicker({ gap: 2, container: deUI.textFillColorPicker2.parent(), isDropup: true });
+        deUI.textFillColorPicker2.colorPicker({gap: 2, container: deUI.textFillColorPicker2.parent(), isDropup: true});
 
         deUI.textStrokeColorPicker2 = jQuery('#text-stroke-color-picker-2');
-        deUI.textStrokeColorPicker2.colorPicker({ gap: 2, container: deUI.textStrokeColorPicker2.parent(), isDropup: true });
+        deUI.textStrokeColorPicker2.colorPicker({
+            gap: 2,
+            container: deUI.textStrokeColorPicker2.parent(),
+            isDropup: true
+        });
 
         //to force toggling color palette when clicking on button in bar
         deUI.productColorPicker.parent().click(function (e) {
@@ -128,26 +140,53 @@ jQuery(function () {
     });
 
     //tab control
-    var activeTab;
+    var activeTabName;
 
-    jQuery('#designer-main-menu > .designer-dropdown > a').click(function (e) {
-        if (designerUI.activeTab && designerUI.activeTab.length) {
-            designerUI.activeTab.next('.dropdown-menu').hide();
-            designerUI.activeTab.parent().removeClass('open');
+    //jQuery('#designer-main-menu a').click(function (e) {
+    //    if (designerUI.activeTab && designerUI.activeTab.length) {
+    //        designerUI.activeTab.next('.dropdown-menu').hide();
+    //        designerUI.activeTab.parent().removeClass('open');
+    //    }
+    //
+    //    if (designerUI.activeTab && designerUI.activeTab.is(e.currentTarget)) {
+    //        jQuery('#designer-main-menu').removeClass('collapsed');
+    //        designerUI.activeTab = null;
+    //    } else {
+    //        jQuery('#designer-main-menu').addClass('collapsed');
+    //        designerUI.activeTab = jQuery(e.currentTarget);
+    //        designerUI.activeTab.parent().addClass('open');
+    //        designerUI.activeTab.next('.dropdown-menu').show();
+    //        if (jQuery('#add-text').hasClass("open")) {
+    //            designerUI.setFocusToTextTab();
+    //        }
+    //    }
+    //});
+
+    function getActiveTabElement(activeTabName) {
+        return $('#' + activeTabName);
+    }
+
+    function setActiveTab(tabName) {
+        activeTabName = tabName;
+    }
+
+    $('.js-designer-tab').on('click', function (event) {
+        var $this = $(this),
+            tabName = $this.attr('href');
+
+        event.preventDefault();
+
+        if (typeof activeTabName === 'string') {
+            getActiveTabElement(activeTabName).addClass('hide');
         }
 
-        if (designerUI.activeTab && designerUI.activeTab.is(e.currentTarget)) {
-            jQuery('#designer-main-menu').removeClass('collapsed');
-            designerUI.activeTab = null;
-        } else {
-            jQuery('#designer-main-menu').addClass('collapsed');
-            designerUI.activeTab = jQuery(e.currentTarget);
-            designerUI.activeTab.parent().addClass('open');
-            designerUI.activeTab.next('.dropdown-menu').show();
-            if (jQuery('#add-text').hasClass("open")) {
-                designerUI.setFocusToTextTab();
-            }
+        if (activeTabName === tabName) {
+            setActiveTab(null);
+            return;
         }
+
+        setActiveTab(tabName);
+        getActiveTabElement(activeTabName).removeClass('hide');
     });
 
     jQuery('#designer-main-menu > .designer-dropdown > .dropdown-menu > .designer-dropdown-form-header > .designer-close-window-btn').click(function (e) {
@@ -206,7 +245,8 @@ jQuery(function () {
 
 /* Alert */
 
-designer_alert = function () { };
+designer_alert = function () {
+};
 
 designer_alert.show = function (message) {
     jQuery('#designer-alert-message').text(message);

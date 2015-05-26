@@ -24,7 +24,7 @@ function mk_theme_enqueue_scripts() {
 		}
 			
 		if($mk_options['minify-js'] == 'true') {
-            wp_enqueue_script( 'theme-scripts-min', THEME_JS .'/min/scripts-vendors-ck.js', array( 'jquery' ), $theme_data['Version'], true );    
+            wp_enqueue_script( 'theme-scripts-min', THEME_JS .'/min/scripts-vendors-ck.js', array( 'jquery' ), $theme_data['Version'], true );
         } else {
             wp_enqueue_script( 'theme-scripts', THEME_JS .'/scripts-vendors.js', array( 'jquery' ), $theme_data['Version'], true );    
         }

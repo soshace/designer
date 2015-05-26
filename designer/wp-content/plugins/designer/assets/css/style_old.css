@@ -248,9 +248,8 @@ input.form-control {
 }
 
 #designer-header {
-    height: 30px;
+    height: 1px;
     width: 100%;
-    background: url(../../assets/img/DesignerLite_logo.png) no-repeat 2px center;
 }
 
 /* panel is stretched to its container */
@@ -290,12 +289,6 @@ input.form-control {
 #canvas-container {
     width: 587px;
     height: 543px;
-    margin-left: 192px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    background-color: white;
 }
 
 #product-sides-switch-container {
@@ -1408,6 +1401,18 @@ ul.designer-button-bar {
                 
             }
 
+            ul.designer-button-bar ul ul > li > a {
+                display: block;
+            }
+
+            ul.designer-button-bar > li > ul > li > span {
+                cursor: default;
+                display: block;
+                height: 38px;
+                line-height: 38px;
+                text-align: center;
+            }
+
             ul.designer-button-bar > li.dropup > .dropdown-menu {
                 border-radius: 1px;
                 border: 0;
@@ -1430,15 +1435,15 @@ ul.designer-button-bar {
                     display: none;
                 }
 
-                ul.designer-button-bar > li.dropup > .dropdown-menu > li > a {
+                ul.designer-button-bar > li.dropup > .dropdown-menu > li a {
                     height: 38px;
                     line-height: 38px;
                     border: 1px solid #ffffff;
                     padding-left: 0px;
                 }
 
-                    ul.designer-button-bar > li.dropup > .dropdown-menu > li > a:focus,
-                    ul.designer-button-bar > li.dropup > .dropdown-menu > li > a:hover {
+                    ul.designer-button-bar > li.dropup > .dropdown-menu > li a:focus,
+                    ul.designer-button-bar > li.dropup > .dropdown-menu > li a:hover {
                         background-color: #333;
                         border-color: #252525;
                         background-image: none;

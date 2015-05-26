@@ -1,46 +1,17 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Designer HTML5</title>
-    <!-- Libs for general usage -->
-    <script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript">jQuery.noConflict();</script>
-    <script type="text/javascript" src="lib/knockout-2.2.1.js"></script>
+<script>
+jQuery(document).ready(function(){
 
-    <!-- Designer UI resources -->
-    <!-- Twitter Bootstrap -->
-    <script type="text/javascript" src="assets/bootstrap/js/bootstrap.js"></script>
-    <link type="text/css" href="assets/bootstrap/css/bootstrap.css" rel="stylesheet" />
-    <!-- noUiSlider -->
-    <script type="text/javascript" src="assets/js/jquery.nouislider.min.js"></script>
-    <link type="text/css" href="assets/css/jquery.nouislider.min.css" rel="stylesheet" />
+	jQuery('#designer-sel-prod').click(function(){
+	
+		jQuery('.designer-back-btn').click();
+		console.log('back button click!');
+	});
+});
+</script>
 
-    <!-- Color Picker -->
-    <script type="text/javascript" src="assets/js/jquery.colorPicker.js"></script>
-    <link rel="stylesheet" href="assets/css/colorPicker.css" type="text/css" />
-    <!-- farbtastic color picker -->
-    <script type="text/javascript" src="assets/js/farbtastic.js"></script>
-    <link rel="stylesheet" href="assets/css/farbtastic.css" type="text/css" />
-    <!-- tooltipster -->
-    <script type="text/javascript" src="assets/js/jquery.tooltipster.min.js"></script>
-    <link type="text/css" href="assets/css/tooltipster.css" rel="stylesheet" />
-    <link type="text/css" href="assets/css/tooltipster-noir.css" rel="stylesheet" />
+<div id="designer-main-container">
+        <div id="designer-header"></div>
 
-    <script type="text/javascript" src="assets/js/jquery.PrintArea.js"></script>
-
-    <!-- Customs styles and scripts -->
-    <link type="text/css" href="assets/css/style.css" rel="stylesheet" />
-
-    <!-- Designer Designer libs -->
-    <script type="text/javascript" src="lib/DELibs.js"></script>
-    <script type="text/javascript" src="DesignerJS.js"></script>
-
-    <!-- Designer Designer Fonts -->
-    <link rel="stylesheet" href="fonts/fonts.css" type="text/css" />
-</head>
-<body>
-    <div id="designer-main-container">
         <div id="designer-init-preloader" data-bind="visible: !$root.status().completed">
             <h5 data-bind="text: $root.status().message" class="text-center text-info"></h5>
             <div class="progress">
@@ -62,7 +33,7 @@
                                     <span data-bind="text: productBreadcrumbsRender()"></span>
                                     <a class="designer-close-window-btn"></a>
                                 </div>
-                                <div id="products-search" class="search-box">
+                                <div id="products-search" class="search-box hello">
                                     <div class="input-group">
                                         <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
                                         <input type="text" class="form-control" placeholder="Search" data-bind="value: productsSearchQuery, valueUpdate: 'input'">
@@ -70,10 +41,9 @@
                                     </div>
                                 </div>
                                 <div class="divider"></div>
-                                <a class="designer-back-btn" data-bind="click: backProductsItem, visible: productSelectedCategories().length > 1"></a>
+                                <a class="designer-back-btn btn1" data-bind="click: backProductsItem, visible: productSelectedCategories().length > 1" style="display:none;"></a>
                                 <ul data-bind="foreach: currentProducts, css: { narrow: productSelectedCategories().length > 1 }" class="thumbnails designer-categories-subcategories">
-                                   <li>TESTING</li>
-								   <li class="thumbnail" data-bind="click: $root.selectProductItem, css: { category: isCategory(), product: isProduct(), active: $data.id() == $root.selectedProductVO().id() }, style: { backgroundImage: 'url(' + categoryThumb() + ')' }">
+                                    <li class="thumbnail" data-bind="click: $root.selectProductItem, css: { category: isCategory(), product: isProduct(), active: $data.id() == $root.selectedProductVO().id() }, style: { backgroundImage: 'url(' + categoryThumb() + ')' }">
                                         <a data-bind="css: { active: $data.id() == $root.selectedProductVO().id(), visible: isProduct() }">
                                             <div class="state"></div>
                                             <span data-bind="text: name"></span>
@@ -286,7 +256,7 @@
                                     </div>
                                 </div>
                                 <div class="divider"></div>
-                                <a class="designer-back-btn" data-bind="visible: graphicSelectedSubcategory, click: backGraphicItem"></a>
+                                <a class="designer-back-btn btn2" data-bind="visible: graphicSelectedSubcategory, click: backGraphicItem"></a>
                                 <ul data-bind="foreach: currentGraphics, css: { narrow: graphicSelectedSubcategory }" class="thumbnails designer-categories-subcategories">
                                     <li class="thumbnail" data-bind="click: $root.selectGraphicItem, css: { category: isCategory(), image: isImage() }, style: { backgroundImage: 'url(' + categoryThumb() + ')' }">
                                         <a data-bind="visible: isImage()">
@@ -465,18 +435,9 @@
                             </li>
                         </ul>
                     </li>
-                    <li id="product-colorizable-elements" class="dropup" data-bind="visible: selectedProductVO().multicolor">
-                        <!--a id="product-colorizable-elements-btn" class="dropdown-toggle" data-toggle="dropdown">Colorizable Elements</a>
-                        <ul id="product-colorizable-elements-list" class="dropdown-menu" data-bind="foreach: { data: selectedProductColorVO().colorizeList, afterAdd: selectedProductColorVO().createColorPicker }">
-                            <li>
-                                <a class="designer-color-picker-btn">
-                                    <span data-bind="text: name" style="float: left; padding-left: 10px; display: inline-block; width: 90px;"></span>
-                                    <input type="text" class="designer-color-picker dropup-color-picker" data-bind="colorPickerInit: { container: true, isDropup: true }, colorPicker: value, productColorPalette: colors" />
-                                </a>
-                            </li>
-                        </ul-->
+                    <!--li id="product-colorizable-elements" class="dropup" data-bind="visible: selectedProductVO().multicolor"-->
                         <!-- ko ifnot: selectedProductColorVO().colorizeList().length == "1" -->
-                        <a id="product-colorizable-elements-btn" class="dropdown-toggle" data-toggle="dropdown">Colorizable Elements</a>
+                        <!--<a id="product-colorizable-elements-btn" class="dropdown-toggle" data-toggle="dropdown">Colorizable Elements</a>
                         <ul id="product-colorizable-elements-list" class="dropdown-menu" data-bind="foreach: { data: selectedProductColorVO().colorizeList, afterAdd: selectedProductColorVO().createColorPicker }">
                             <li>
                                 <a class="designer-color-picker-btn">
@@ -484,14 +445,30 @@
                                     <input type="text" class="designer-color-picker dropup-color-picker" data-bind="colorPickerInit: { container: true, isDropup: true }, colorPicker: value, productColorPalette: colors" />
                                 </a>
                             </li>
-                        </ul>
+                        </ul>-->
                         <!-- /ko -->
                         <!-- ko if: (selectedProductColorVO().colorizeList().length == "1") -->
-                        <a class="designer-color-picker-btn" data-bind="foreach: { data: selectedProductColorVO().colorizeList, afterAdd: selectedProductColorVO().createColorPicker }" href="#">
+                        <!--<a class="designer-color-picker-btn" data-bind="foreach: { data: selectedProductColorVO().colorizeList, afterAdd: selectedProductColorVO().createColorPicker }" href="#">
                             <span>Product Color</span>
                             <input type="text" class="designer-color-picker dropup-color-picker" data-bind="colorPickerInit: { container: true, isDropup: true }, colorPicker: value, productColorPalette: colors" />
-                        </a>
+                        </a>-->
                         <!-- /ko -->
+                    <!--</li>-->
+                    <li id="product-colorizable-elements" class="dropup" data-bind="visible: selectedProductVO().multicolor">
+                        <a id="product-colorizable-elements-btn" class="dropdown-toggle" data-toggle="dropdown">Colorizable Groups</a>
+                        <ul id="" class="dropdown-menu" data-bind="foreach: { data: selectedProductColorVO().colorizeGroupList}">
+                            <li>
+                                <span data-bind="text: name"></span>
+                                <ul id="product-colorizable-elements-list" class="list-unstyled" data-bind="foreach: { data: classes, afterAdd: $root.selectedProductColorVO().createColorPicker }">
+                                    <li>
+                                        <a class="designer-color-picker-btn">
+                                            <span data-bind="text: name"></span>
+                                            <input type="text" class="designer-color-picker dropup-color-picker" data-bind="colorPickerInit: { container: true, isDropup: true }, colorPicker: value, productColorPalette: colors" />
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
                     <!--
                     <li id="lock-proportions">
@@ -795,15 +772,3 @@
         </div>
     </div>
     <!-- Color count popup end -->
-
-
-    <script type="text/javascript" src="assets/js/designer-ui-components.js" defer="defer"></script>
-    <script type="text/javascript" src="UI.js" defer="defer"></script>
-
-
-    <!--<div id="divLog"></div>
-        <button onclick="magic()">Magic!</button>
-        <button onclick="magic2()">Magic2</button>-->
-
-</body>
-</html>

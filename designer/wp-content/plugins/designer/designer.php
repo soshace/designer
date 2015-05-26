@@ -118,8 +118,8 @@ function designer_load_styles() {
     wp_enqueue_style('designer_tooltipster_noir', DESIGNER_URL . 'assets/css/tooltipster-noir.css');
     
     wp_enqueue_style('designer_styles', DESIGNER_URL . 'assets/css/style.css');
-   wp_enqueue_style('designer_style_fix', DESIGNER_URL . 'styles/fix.css');
-    
+//   wp_enqueue_style('designer_style_fix', DESIGNER_URL . 'styles/fix.css');
+
     //wp_enqueue_style('designer_fonts', DESIGNER_URL . 'fonts/fonts.css');
 	wp_enqueue_style('designer_css_fonts', DESIGNER_FONTS_CSS_URL_JSON);
     
@@ -179,7 +179,6 @@ function designer_load_js_scripts() {
 }
 
 function wcla_load_designer($atts) {	
-
     include DESIGNER_DIR . 'templates/designer_tpl.php';
 }
 function wcla_load_designer_iframe($atts) {

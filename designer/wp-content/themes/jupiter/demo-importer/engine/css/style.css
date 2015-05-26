@@ -1,0 +1,122 @@
+#importer-wrapper h1 {
+  margin:20px 10px;
+}
+
+.import_message > div {
+  padding: 20px;
+}
+
+.import-content-loading {
+  padding: 10px 10px 10px 35px;
+  background:url(../spinner.gif) left center no-repeat;
+}
+
+.import-package {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 25%;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+
+
+.import-package img {
+    width: 100%;
+     max-width: 100%;
+    width: auto\9;
+    height: auto;
+    border: 0;
+    vertical-align: middle;
+    -ms-interpolation-mode: bicubic;
+  }
+
+@media handheld, only screen and (max-width: 1500px) {
+  .import-package {
+    width: 33%;
+  }
+}
+
+@media handheld, only screen and (max-width: 767px) {
+  .import-package {
+    width: 100% !important;
+  }
+  
+}
+
+.import-package > div {
+  margin: 10px;
+  padding-bottom: 15px;
+  background-color: #f9f9f9;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.demo-importer-title {
+  padding:0 15px;
+  text-align: center;
+}
+
+.demo-importer-title {
+  text-transform: capitalize;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  display: block;
+  color: #444;
+}
+
+.demo-importer-title:after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 3px;
+  margin: 10px auto;
+  background-color: #444;
+}
+
+.import-package .button-holder {
+  margin: 0 auto !important;
+  display: block;
+  text-align: center;
+}
+.import-package .button-holder a {
+  margin: 0 10px !important;
+} 
+
+.checkbox-holder {
+  margin: 30px 20px 30px 10px;
+  text-align: center;
+}
+.checkbox-holder input{
+  margin-left:20px;
+}
+.checkbox-holder label {
+  font-size: 14px;
+  color: #5b5b5b;
+  padding-left: 4px;
+}
+
+
+@media handheld, only screen and (max-width: 1300px) {
+   .checkbox-holder  {
+    text-align: left;
+   }
+  .checkbox-holder span {
+    display: block;
+    margin-bottom: 15px;
+  }
+  .demo-importer-title {
+    text-align: left;
+    margin-left: 15px;
+  }
+  .demo-importer-title:after {
+    margin-left: 0;
+  }
+}
+
+

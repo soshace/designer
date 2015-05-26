@@ -1,0 +1,415 @@
+@import 'snippets';
+/* 
+**
+**
+** Masterkey Header 
+-------------------------------------------------------------*/
+
+.main-left-section {
+	width: 100px;
+	float: left;
+
+}
+
+.mk-logo {
+	display: block;
+	margin:15px 3px 5px 15px;
+	width: 71px;
+	height: 43px;
+	background: url(../../images/mk-logo.png) no-repeat;
+
+}
+
+.mk-theme-version {
+	color: #a4a4a4;
+	font-size: 11px;
+	text-align: center;
+	display: block;
+	margin-bottom: 20px;
+}
+
+
+
+ 
+/* 
+**
+**
+** Masterkey Header
+-------------------------------------------------------------*/
+.masterkey-options-page { 
+	margin: 20px 20px 0 0;
+	color:#555555;
+}
+
+
+.mk-options-container { 
+	position: relative;
+	background: url(../../images/mk-body-bg.png)left center repeat-y !important;
+	a:focus {
+		.box-shadow(none);
+	}
+
+}
+
+
+.mk-main-navigator li, .mk-sub-navigator li {
+	&.ui-state-active, &.ui-widget-content &.ui-state-active, &.ui-widget-header &.ui-state-active, &.ui-state-hover {
+		border: none !important;
+		background: none !important;
+		font-weight: inherit !important;
+		color: inherit !important;
+	}
+}
+
+
+/* 
+**
+**
+** Main Navigator
+-------------------------------------------------------------*/
+
+.mk-main-navigator {
+
+	width: 100px;
+	li {	
+		margin:0 0 5px 0;
+		text-align: center;
+		
+		a {
+			display: block;	
+			color:#eee;
+			text-align: center;
+			font-size: 12px;
+			line-height: 12px;
+			padding: 15px 0;
+			
+			&:hover {
+				color:#fff;
+				background-color: #313131;
+				i {
+					color: #17bce8;
+				}
+			}
+
+			i {
+				display: block;
+				margin-bottom:10px !important;
+				
+				&:before {
+					font-size: 32px !important;
+					width: auto !important;
+					height: auto !important;
+				}
+			}
+		}
+
+		&.ui-tabs-active a {
+			color:#fff;
+			background-color: #313131;
+			i {
+				color: #17bce8;
+			}
+		}
+
+													
+	}
+}
+
+
+.mk-main-panes {
+	min-height: 700px;
+	display: block;
+
+}
+
+
+
+
+/* 
+**
+**
+** Sub Navigator
+-------------------------------------------------------------*/
+
+.mk-sub-navigator {
+	display: block;
+	float: left;
+	margin: 70px 0 0;
+	padding: 0;
+	 width:227px;
+
+	li {
+		display: block; 
+		margin: 0;
+
+		&:hover, &.ui-state-active{
+			
+		}
+		a {
+			display: block;
+			
+			padding: 16px;
+			
+			background: url(../../images/sub-navigator-arrow.png) 190px center no-repeat; 
+			color:#bbbbbb !important;
+			font-size: 13px;
+			line-height: 14px;
+			&:hover {
+				background: url(../../images/sub-navigator-arrow-active.png) 190px center no-repeat;
+				color:#14cdff  !important;
+			}
+		
+		}	
+			&.ui-state-active a {
+				background: url(../../images/sub-navigator-arrow-active.png) 190px center no-repeat;
+				color:#14cdff !important;
+			}
+	}
+}
+
+.mk-sub-panes {
+	display: block;
+	margin: 0 15px 15px 325px;
+	padding-top: 25px;
+
+
+}
+
+
+#save_theme_options_top {
+	position: absolute;
+	top:30px;
+	right:30px;
+}
+
+
+
+
+/* 
+**
+**
+** General Options Layouts
+-------------------------------------------------------------*/
+
+.mk-single-option {
+	padding: 0 15px 20px;
+	
+	margin: 0 0 20px 3px;
+	label, .option-title-sub {
+		display: block;
+		color: #444;
+		font-weight: bold;
+		margin-bottom: 3px;
+		font-size: 14px;
+	} 
+
+	border-bottom: 1px solid #eee;
+
+	.option-desc {
+		display: block;
+		margin-bottom: 15px;
+		color:#777777;
+		font-size: 13px;
+		font-style: italic;
+
+	}
+
+}
+
+.mk-heading-option {
+	margin-left: 2px;
+	margin-bottom: 50px;
+	border-bottom: 1px solid #717171;
+	.mk-page-heading {
+		padding: 20px 20px 10px;
+		font-size: 26px;
+		line-height: 32px;
+		
+		display: block;
+	}
+
+	.option-desc {
+		display: block;
+		margin:0 0 20px 20px;
+		color:#777777;
+		font-size: 11px;
+
+	}
+}
+
+
+
+
+.mk-footer-buttons {
+	display: block;
+	margin:60px 30px 30px 130px;
+	text-align: right;
+	height: 70px;
+
+}
+
+
+.mk-button {
+	font-size: 13px;
+	display: inline-block;
+	margin-left: 15px;
+	padding: 15px 35px;
+	text-decoration: none;
+	cursor: pointer;
+	span{
+		display: inline-block;
+		padding: 2px 0;
+	}
+	&.mk-secondary {
+		padding: 13px 35px;
+
+	}
+	&.mk-ancilary {
+		padding: 5px 20px;
+	}
+
+	&.dominant-color {
+		border:none;
+		background-color: #313131;
+		color:#fff;	
+
+		&:hover {
+			background-color: #595959   ;
+
+		}
+
+	}
+	&.main-button {
+		background-color: #14a5ed;
+
+		&:hover {
+			background-color: #1394d4;
+
+		}
+	}
+
+	&.highlight-color {
+		border:none;
+		background-color: #aaaaaa;
+		color:#fff;
+
+		&:hover {
+			background-color: #848484;	
+
+		}
+	}
+
+	&#mk_reset_confirm {
+		border: 2px solid #666666;
+		background-color: #313131;
+		color: #aaaaaa;
+		&:hover {
+			background-color: #272727;
+		}
+	}
+
+
+}
+
+
+#mk_reset_confirm {
+	float: left;
+	margin-left: 0px;
+}
+
+
+@font-face {
+	font-family: 'masterkey-icons';
+	src:url('../masterkey-icons/masterkey-icons.eot');
+	src:url('../masterkey-icons/masterkey-icons.eot?#iefix') format('embedded-opentype'),
+		url('../masterkey-icons/masterkey-icons.woff') format('woff'),
+		url('../masterkey-icons/masterkey-icons.ttf') format('truetype'),
+		url('../masterkey-icons/masterkey-icons.svg#masterkey-icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-globe, .icon-checkmark3, .icon-close2, .icon-menu10, .icon-lock2, .icon-arrow-up-right2, .icon-arrow-up4, .icon-arrow-up-left2, .icon-arrow-right5, .icon-arrow-left4, .icon-arrow-down4, .icon-arrow-down-right2, .icon-arrow-down-left2, .icon-menu10-2, .icon-support, .icon-lab, .icon-blog, .icon-briefcase3, .icon-type, .icon-globe-2, .icon-droplet3 {
+	font-family: 'masterkey-icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-globe:before {
+	content: "\25a0";
+}
+.icon-checkmark3:before {
+	content: "\25a2";
+}
+.icon-close2:before {
+	content: "\25a3";
+}
+.icon-menu10:before {
+	content: "\25a4";
+}
+.icon-lock2:before {
+	content: "\25a8";
+}
+.icon-arrow-up-right2:before {
+	content: "\25ad";
+}
+.icon-arrow-up4:before {
+	content: "\25ac";
+}
+.icon-arrow-up-left2:before {
+	content: "\25b0";
+}
+.icon-arrow-right5:before {
+	content: "\25c6";
+}
+.icon-arrow-left4:before {
+	content: "\25db";
+}
+.icon-arrow-down4:before {
+	content: "\25e0";
+}
+.icon-arrow-down-right2:before {
+	content: "\25de";
+}
+.icon-arrow-down-left2:before {
+	content: "\25e3";
+}
+.icon-menu10-2:before {
+	content: "\25e5";
+}
+.icon-support:before {
+	content: "\25e8";
+}
+.icon-lab:before {
+	content: "\25e7";
+}
+.icon-blog:before {
+	content: "\25eb";
+}
+.icon-briefcase3:before {
+	content: "\25ef";
+}
+.icon-type:before {
+	content: "\25f1";
+}
+.icon-globe-2:before {
+	content: "\25f2";
+}
+.icon-droplet3:before {
+	content: "\25f4";
+}
+
+
+
+

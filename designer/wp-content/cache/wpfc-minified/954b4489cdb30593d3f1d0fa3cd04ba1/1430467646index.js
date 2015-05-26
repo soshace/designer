@@ -1,0 +1,1 @@
+var ajaxurl = "http://107.191.56.6/~zemsapparel/wp-admin/admin-ajax.php";

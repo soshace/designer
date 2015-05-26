@@ -1,0 +1,134 @@
+
+
+@font-face {
+    font-family: 'TitilliumText22LThin';
+    src: url('TitilliumText22L001-webfont.eot');
+    src: url('TitilliumText22L001-webfont.eot?iefix') format('eot'),
+         url('TitilliumText22L001-webfont.woff') format('woff'),
+         url('TitilliumText22L001-webfont.ttf') format('truetype'),
+         url('TitilliumText22L001-webfont.svg#webfontEtJY7Tfo') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'TitilliumText22LLight';
+    src: url('TitilliumText22L002-webfont.eot');
+    src: url('TitilliumText22L002-webfont.eot?iefix') format('eot'),
+         url('TitilliumText22L002-webfont.woff') format('woff'),
+         url('TitilliumText22L002-webfont.ttf') format('truetype'),
+         url('TitilliumText22L002-webfont.svg#webfontJx8AgFWg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'TitilliumText22LRegular';
+    src: url('TitilliumText22L003-webfont.eot');
+    src: url('TitilliumText22L003-webfont.eot?iefix') format('eot'),
+         url('TitilliumText22L003-webfont.woff') format('woff'),
+         url('TitilliumText22L003-webfont.ttf') format('truetype'),
+         url('TitilliumText22L003-webfont.svg#webfonthw2QSkaV') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'TitilliumText22LMedium';
+    src: url('TitilliumText22L004-webfont.eot');
+    src: url('TitilliumText22L004-webfont.eot?iefix') format('eot'),
+         url('TitilliumText22L004-webfont.woff') format('woff'),
+         url('TitilliumText22L004-webfont.ttf') format('truetype'),
+         url('TitilliumText22L004-webfont.svg#webfontR8jqiKWT') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'TitilliumText22LBold';
+    src: url('TitilliumText22L005-webfont.eot');
+    src: url('TitilliumText22L005-webfont.eot?iefix') format('eot'),
+         url('TitilliumText22L005-webfont.woff') format('woff'),
+         url('TitilliumText22L005-webfont.ttf') format('truetype'),
+         url('TitilliumText22L005-webfont.svg#webfontQJLLLQu2') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'TitilliumText22LXBold';
+    src: url('TitilliumText22L006-webfont.eot');
+    src: url('TitilliumText22L006-webfont.eot?iefix') format('eot'),
+         url('TitilliumText22L006-webfont.woff') format('woff'),
+         url('TitilliumText22L006-webfont.ttf') format('truetype'),
+         url('TitilliumText22L006-webfont.svg#webfontw8fCAPpd') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'ColaborateThinRegular';
+    src: url('ColabThi-webfont.eot');
+    src: url('ColabThi-webfont.eot?iefix') format('eot'),
+         url('ColabThi-webfont.woff') format('woff'),
+         url('ColabThi-webfont.ttf') format('truetype'),
+         url('ColabThi-webfont.svg#webfontbOrwRK9P') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'ColaborateLightRegular';
+    src: url('ColabLig-webfont.eot');
+    src: url('ColabLig-webfont.eot?iefix') format('eot'),
+         url('ColabLig-webfont.woff') format('woff'),
+         url('ColabLig-webfont.ttf') format('truetype'),
+         url('ColabLig-webfont.svg#webfontR2xcGGVv') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'ColaborateRegular';
+    src: url('ColabReg-webfont.eot');
+    src: url('ColabReg-webfont.eot?iefix') format('eot'),
+         url('ColabReg-webfont.woff') format('woff'),
+         url('ColabReg-webfont.ttf') format('truetype'),
+         url('ColabReg-webfont.svg#webfontB6AeCMH3') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'ColaborateMediumRegular';
+    src: url('ColabMed-webfont.eot');
+    src: url('ColabMed-webfont.eot?iefix') format('eot'),
+         url('ColabMed-webfont.woff') format('woff'),
+         url('ColabMed-webfont.ttf') format('truetype'),
+         url('ColabMed-webfont.svg#webfontHpK4vQGz') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'ColaborateBoldRegular';
+    src: url('ColabBol-webfont.eot');
+    src: url('ColabBol-webfont.eot?iefix') format('eot'),
+         url('ColabBol-webfont.woff') format('woff'),
+         url('ColabBol-webfont.ttf') format('truetype'),
+         url('ColabBol-webfont.svg#webfont6AVTa9Or') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+

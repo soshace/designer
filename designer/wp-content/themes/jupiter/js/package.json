@@ -1,0 +1,15 @@
+{
+  "name": "Jupiter",
+  "version": "0.0.0",
+  "author": "Sina Sadrzadeh",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-bless": "^0.2.0",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-less": "^0.11.3",
+    "grunt-contrib-uglify": "^0.5.0",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}

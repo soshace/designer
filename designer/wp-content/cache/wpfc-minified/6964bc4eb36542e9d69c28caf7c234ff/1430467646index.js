@@ -1,0 +1,2 @@
+// source --> http://107.191.56.6/~zemsapparel/wp-content/cache/wpfc-minified/954b4489cdb30593d3f1d0fa3cd04ba1/1430467646index.js 
+var ajaxurl = "http://107.191.56.6/~zemsapparel/wp-admin/admin-ajax.php";

@@ -1,0 +1,1 @@
+[01-Apr-2015 08:39:51 UTC] PHP Fatal error:  Call to undefined method WC_Product_Simple::get_review_count() in /home/zemsapparel/public_html/wp-content/themes/jupiter/woocommerce/content-single-product.php on line 52

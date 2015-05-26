@@ -1,0 +1,3 @@
+/* <![CDATA[ */
+var cssTarget = "img.";
+/* ]]> */;

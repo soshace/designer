@@ -95,7 +95,7 @@ var TextFormatVO = function (fontFamily, fillColor, bold, italic, stroke, stroke
     self.textAlign = ko.observable(textAlign);
     self.textEffect = ko.observable(textEffect);
     self.textEffectValue = ko.observable(textEffectValue);
-    self.lineLeading = ko.observable(lineLeading).extend({ throttle: 25 });
+    self.lineLeading = ko.observable(lineLeading).extend({throttle: 25});
 
     self.textEffectCombined = ko.computed(function () {
         return self.textEffect() + self.textEffectValue();
@@ -343,7 +343,7 @@ var ProductVO = function (id, categoryId, name, description, price, colors, loca
             self.id(obj['id']);
         }
     }
-}
+};
 
 var ProductCategoryVO = function (obj) {
     if (isNullOrUndefined(obj)) obj = {};
@@ -368,11 +368,13 @@ var ProductCategoryVO = function (obj) {
     var mappedProducts = ko.utils.arrayMap(obj.products, function (item) {
         return new ProductCategoryVO(item);
     });
+
     self.products = ko.observableArray(mappedProducts);
 
     var mappedCategories = ko.utils.arrayMap(obj.categories, function (item) {
         return new ProductCategoryVO(item);
     });
+
     self.categories = ko.observableArray(mappedCategories);
 
     self.children = ko.computed(function () {
@@ -395,7 +397,7 @@ var ProductCategoryVO = function (obj) {
         return "";
     });
 
-}
+};
 
 var ComplexColorVO = function (updateHandler, hexValue, name, colorizeList, colorizeGroupList) {
     if (isNullOrUndefined(hexValue)) hexValue = '#000000';
@@ -456,13 +458,13 @@ var ComplexColorVO = function (updateHandler, hexValue, name, colorizeList, colo
         //return flat legacy list without groups
         for (var i = 0; i < self.colorizeList().length; i++) {
             var colEl = self.colorizeList()[i];
-            res.push({ id: colEl.id(), value: colEl.value() });
+            res.push({id: colEl.id(), value: colEl.value()});
         }
         for (var i = 0; i < self.colorizeGroupList().length; i++) {
             var colGr = self.colorizeGroupList()[i];
             for (var j = 0; j < colGr.classes().length; j++) {
                 var colEl = colGr.classes()[j];
-                res.push({ id: colEl.id(), value: colEl.value() });
+                res.push({id: colEl.id(), value: colEl.value()});
             }
         }
         return res;
@@ -584,7 +586,8 @@ var ColorizeElementVO = function (updateHandler, value, name, colors, id) {
 var SizeQuantityVO = function (size, quantity, changeHandler) {
     if (isNullOrUndefined(size)) size = '';
     if (isNullOrUndefined(quantity)) quantity = 1;
-    if (isNullOrUndefined(changeHandler)) changeHandler = function () { };
+    if (isNullOrUndefined(changeHandler)) changeHandler = function () {
+    };
 
     var self = this;
     self.size = ko.observable(size);
@@ -611,7 +614,8 @@ var NameNumberVO = function (name, number, size, changeHandler) {
     if (isNullOrUndefined(name)) name = '';
     if (isNullOrUndefined(number)) number = '';
     if (isNullOrUndefined(size)) size = '';
-    if (isNullOrUndefined(changeHandler)) changeHandler = function () { };
+    if (isNullOrUndefined(changeHandler)) changeHandler = function () {
+    };
 
     var self = this;
     self.name = ko.observable(name);
@@ -704,7 +708,7 @@ function DEControlsModel() {
     };
 
     self.selectedProductVO().id.subscribe(function (id) {
-        userInteract({ selectedProductId: id });
+        userInteract({selectedProductId: id});
     });
 
     // product's selected color value object
@@ -712,7 +716,7 @@ function DEControlsModel() {
 
     self.selectedProductColorVO().hexValue.subscribe(function (newValue) {
         if (!self.selectedProductColorVO().suppressUpdate) {
-            userInteract({ selectedProductColor: newValue });
+            userInteract({selectedProductColor: newValue});
         }
     });
 
@@ -746,7 +750,7 @@ function DEControlsModel() {
         } else if (step > 0 && newValue % step != 0) {
             designerUI.validationError(control, "Minimal step is " + step);
         } else {
-            userInteract({ selectedProductSize: { width: newValue, height: self.selectedProductSizeVO().height() } });
+            userInteract({selectedProductSize: {width: newValue, height: self.selectedProductSizeVO().height()}});
         }
     });
 
@@ -773,7 +777,7 @@ function DEControlsModel() {
         } else if (step > 0 && newValue % step != 0) {
             designerUI.validationError(control, "Minimal step is " + step);
         } else {
-            userInteract({ selectedProductSize: { width: self.selectedProductSizeVO().width(), height: newValue } });
+            userInteract({selectedProductSize: {width: self.selectedProductSizeVO().width(), height: newValue}});
         }
     });
 
@@ -799,11 +803,11 @@ function DEControlsModel() {
     }
 
     self.selectedProductLocation.subscribe(function (newValue) {
-        userInteract({ selectedProductLocation: newValue });
+        userInteract({selectedProductLocation: newValue});
     });
 
     function updateProductColorize() {
-        userInteract({ selectedProductColorize: self.selectedProductColorVO().toColorizeList() });
+        userInteract({selectedProductColorize: self.selectedProductColorVO().toColorizeList()});
     }
 
     /**
@@ -815,8 +819,8 @@ function DEControlsModel() {
      * PRODUCT CATEGORY BEGINS HERE
      */
 
-    //variables
-    self.productRootCategory = ko.observable(new ProductCategoryVO({ id: 'root' }));
+        //variables
+    self.productRootCategory = ko.observable(new ProductCategoryVO({id: 'root'}));
     self.productSelectedCategories = ko.observableArray();
     self.productCurrentCategory = ko.computed(function () {
         if (!self.productSelectedCategories() || self.productSelectedCategories().length < 1)
@@ -952,7 +956,6 @@ function DEControlsModel() {
      */
 
 
-
     /**
      * PRODUCT PRICES BEGIN HERE
      */
@@ -992,7 +995,6 @@ function DEControlsModel() {
     };
 
 
-
     self.removeQuantity = function (line, clickEvent) {
         var q = parseInt(line.quantity());
         var decreaseStep = -q; // decrease to -q for set quantity to zero before delete
@@ -1013,7 +1015,7 @@ function DEControlsModel() {
     };
 
     self.changeQuantity = function (line, number1, clickEvent, changeQuantityOptions) {
-        if (!changeQuantityOptions) changeQuantityOptions = { ignoreTotal: false, removeZero: false };
+        if (!changeQuantityOptions) changeQuantityOptions = {ignoreTotal: false, removeZero: false};
 
         var r = parseInt(line.quantity());
         var totalQ = self.totalQuantity();
@@ -1052,7 +1054,7 @@ function DEControlsModel() {
         var quantities = jQuery.map(controlsModel.quantities(), function (item) {
             return item.toObject();
         });
-        userInteract({ updateQuantities: quantities });
+        userInteract({updateQuantities: quantities});
     }
 
     /**
@@ -1064,11 +1066,11 @@ function DEControlsModel() {
      */
 
     self.addNameObj = function () {
-        userInteract({ addNameObj: self.selectedLetteringVO().toObject() });
+        userInteract({addNameObj: self.selectedLetteringVO().toObject()});
     }
 
     self.addNumberObj = function () {
-        userInteract({ addNumberObj: self.selectedLetteringVO().toObject() });
+        userInteract({addNumberObj: self.selectedLetteringVO().toObject()});
     }
 
     self.namesNumbers = ko.observableArray();
@@ -1115,7 +1117,7 @@ function DEControlsModel() {
         var namesNumbers = jQuery.map(controlsModel.namesNumbers(), function (item) {
             return item.toObject();
         });
-        userInteract({ updateNamesNumbers: namesNumbers });
+        userInteract({updateNamesNumbers: namesNumbers});
     }
 
     /**
@@ -1126,7 +1128,7 @@ function DEControlsModel() {
      * COLORS AND FONTS BEGIN HERE
      */
 
-    // list of available fonts for letterings
+        // list of available fonts for letterings
     self.fonts = ko.observableArray();
 
     // name of selected font
@@ -1137,7 +1139,7 @@ function DEControlsModel() {
                 return fonts[i];
             }
         }
-        return { name: "", fontFamily: "", boldAllowed: true, italicAllowed: true };
+        return {name: "", fontFamily: "", boldAllowed: true, italicAllowed: true};
     });
 
 
@@ -1172,11 +1174,11 @@ function DEControlsModel() {
      */
 
     /**
-  * GRAPHICS CATEGORY BEGINS HERE
-  */
+     * GRAPHICS CATEGORY BEGINS HERE
+     */
 
-    // tree if graphics categories
-    self.graphicRootCategory = ko.observable(new GraphicsCategoryVO({ id: 'root' }));
+        // tree if graphics categories
+    self.graphicRootCategory = ko.observable(new GraphicsCategoryVO({id: 'root'}));
 
     // list of graphics categories
     self.graphicCatalogBreadcrumbs = ko.observableArray();
@@ -1203,7 +1205,7 @@ function DEControlsModel() {
     self.selectGraphicItem = function (categoryItem) {
         if (categoryItem.isImage()) {
             if (categoryItem.id()) {
-                userInteract({ addGraphics: categoryItem.id() });
+                userInteract({addGraphics: categoryItem.id()});
                 designerUI.closeActiveTab();
             }
             return;
@@ -1298,31 +1300,37 @@ function DEControlsModel() {
      * SELECTED OBJECT BEGINS HERE
      */
 
-    // selected object's type
-    // can be 'none' (no object is selected), 'text' or 'graphic'
+        // selected object's type
+        // can be 'none' (no object is selected), 'text' or 'graphic'
     self.selectedObjectType = ko.observable('none');
 
     // return true if some object is selected
-    self.hasSelected = ko.computed(function () { return self.selectedObjectType() != 'none'; });
+    self.hasSelected = ko.computed(function () {
+        return self.selectedObjectType() != 'none';
+    });
 
     // return true if selected object is text
-    self.selectedIsText = ko.computed(function () { return self.selectedObjectType() == 'text'; });
+    self.selectedIsText = ko.computed(function () {
+        return self.selectedObjectType() == 'text';
+    });
 
 
     // return true if selected object is graphics
-    self.selectedIsGraphics = ko.computed(function () { return self.selectedObjectType() == 'graphics'; });
+    self.selectedIsGraphics = ko.computed(function () {
+        return self.selectedObjectType() == 'graphics';
+    });
 
     self.selectedObjectPropertiesVO = ko.observable(new ObjectPropertiesVO());
 
     self.selectedObjectPropertiesVO().width.subscribe(function (value) {
         if (!self.selectedObjectPropertiesVO().suppressUpdate) {
-            userInteract({ updateObject: self.selectedObjectPropertiesVO().toWidthObject() });
+            userInteract({updateObject: self.selectedObjectPropertiesVO().toWidthObject()});
         }
     });
 
     self.selectedObjectPropertiesVO().height.subscribe(function (value) {
         if (!self.selectedObjectPropertiesVO().suppressUpdate) {
-            userInteract({ updateObject: self.selectedObjectPropertiesVO().toHeightObject() });
+            userInteract({updateObject: self.selectedObjectPropertiesVO().toHeightObject()});
         }
     });
 
@@ -1330,12 +1338,12 @@ function DEControlsModel() {
      * LETTERING OBJECT BEGINS HERE
      */
 
-    // selected lettering value object
+        // selected lettering value object
     self.selectedLetteringVO = ko.observable(new LetteringVO());
 
     // public function that forces Designer to add new text
     self.addText = function () {
-        userInteract({ addText: self.selectedLetteringVO().toObject() });
+        userInteract({addText: self.selectedLetteringVO().toObject()});
     };
 
     self.selectedLetteringVO().text.subscribe(function (value) {
@@ -1389,7 +1397,7 @@ function DEControlsModel() {
     self.suppressTextUpdate = false;
     function updateText() {
         if (self.selectedObjectType() == 'text' && !self.suppressTextUpdate) {
-            userInteract({ updateText: self.selectedLetteringVO().toObject() });
+            userInteract({updateText: self.selectedLetteringVO().toObject()});
         }
     }
 
@@ -1398,8 +1406,8 @@ function DEControlsModel() {
      */
 
     /**
- * TEXT EFFECT START 
- */
+     * TEXT EFFECT START
+     */
     self.textEffects = ko.observableArray([]);
     self.selectedTextEffectVO = ko.observable(new TextEffectVO());
 
@@ -1487,14 +1495,14 @@ function DEControlsModel() {
     });
 
     /**
-     * TEXT EFFECT END 
+     * TEXT EFFECT END
      */
 
     /**
      * GRAPHICS OBJECT BEGINS HERE
      */
 
-    // selected graphics format value object
+        // selected graphics format value object
     self.selectedGraphicsFormatVO = ko.observable(new GraphicsFormatVO(updateGraphicsColorize));
 
     // boolean value that shows whether selected object is a colorizable graphics object
@@ -1516,11 +1524,11 @@ function DEControlsModel() {
 
     // private function that informs Designer about change in graphics (fill, stroke, etc.)
     function updateGraphics() {
-        userInteract({ updateGraphics: self.selectedGraphicsFormatVO().toObject() });
+        userInteract({updateGraphics: self.selectedGraphicsFormatVO().toObject()});
     }
 
     function updateGraphicsColorize() {
-        userInteract({ selectedGraphicsColorize: self.selectedGraphicsFormatVO().complexColor().toColorizeList() });
+        userInteract({selectedGraphicsColorize: self.selectedGraphicsFormatVO().complexColor().toColorizeList()});
     }
 
     self.uploadFileAvailable = ko.observable(false);
@@ -1600,8 +1608,7 @@ function DEControlsModel() {
      * DESIGNER PROGRESS STATUS BEGINS HERE
      */
 
-    self.status = ko.observable({
-    });
+    self.status = ko.observable({});
 
     self.percentCompleted = ko.computed(function () {
         return self.status().percentCompleted + "%";
@@ -1703,7 +1710,7 @@ function DEControlsModel() {
     self.selectedDesign = ko.observable();
     self.designNotes = ko.observable();
     self.designNotes.subscribe(function (val) {
-        userInteract({ designNotes: val });
+        userInteract({designNotes: val});
     });
 
     self.onDesignSelected = function (design) {
@@ -1721,8 +1728,7 @@ function DEControlsModel() {
      * DESIGN INFO BEGINS HERE
      */
 
-    self.designInfo = ko.observable({
-    });
+    self.designInfo = ko.observable({});
 
     self.objectsCount = ko.computed(function () {
         var imagesCount = '';
@@ -1827,21 +1833,21 @@ function DEControlsModel() {
      */
 
     /**
-    * UNDO/REDO BEGINS HERE
-    */
+     * UNDO/REDO BEGINS HERE
+     */
     self.undo = function () {
-        userInteract({ undo: true });
+        userInteract({undo: true});
     }
 
     self.redo = function () {
-        userInteract({ redo: true });
+        userInteract({redo: true});
     }
 
     self.isUndoActive = ko.observable(false);
     self.isRedoActive = ko.observable(false);
     /**
-    * UNDO/REDO ENDS HERE
-    */
+     * UNDO/REDO ENDS HERE
+     */
 
     /**
      * UPDATE VIEW MODEL BEGINS HERE
@@ -2114,12 +2120,11 @@ ko.bindingHandlers.colorPickerInit = {
         var $element, observable;
         observable = valueAccessor();
         /*if (!ko.isWriteableObservable(observable)) {
-            throw 'You must pass an observable or writeable computed';
-        }*/
+         throw 'You must pass an observable or writeable computed';
+         }*/
         $element = jQuery(element);
         checkUniqueId($element);
-        var params = {
-        };
+        var params = {};
         if (observable.container) params.container = $element.parent();
         if (observable.isDropup) params.isDropup = true;
         params.gap = 2;
@@ -2176,7 +2181,7 @@ ko.bindingHandlers.colorPalette = {
                 var colorValues = [];
                 var _observableArray = observableArray();
                 for (var i = 0; i < _observableArray.length; i++) {
-                    colorValues.push({ value: _observableArray[i].value, name: _observableArray[i].name });
+                    colorValues.push({value: _observableArray[i].value, name: _observableArray[i].name});
                 }
                 if (colorValues.length > 0) {
                     jQuery.fn.colorPicker.changeColor($element.attr('id'), colorValues[0].value);
@@ -2202,7 +2207,7 @@ ko.bindingHandlers.productColorPalette = {
                 var colorValues = [];
                 var _observableArray = observableArray();
                 for (var i = 0; i < _observableArray.length; i++) {
-                    colorValues.push({ value: _observableArray[i].value, name: _observableArray[i].name });
+                    colorValues.push({value: _observableArray[i].value, name: _observableArray[i].name});
                 }
                 jQuery.fn.colorPicker.setColors($element.attr('id'), colorValues);
             }
@@ -2256,7 +2261,7 @@ ko.bindingHandlers.slider = {
             }
         });
     }
-}
+};
 
 
 ko.bindingHandlers.rangeStart = {
@@ -2269,10 +2274,10 @@ ko.bindingHandlers.rangeStart = {
                 designerUI.laUpdateSliderRange(element, valueAccessor, allBindingsAccessor);
             }
             valuesHolder[slider.attr("id")] = rangeEnd;
-        }
+        };
         return updater;
     })()
-}
+};
 
 ko.bindingHandlers.rangeEnd = {
     update: (function () {
@@ -2287,7 +2292,7 @@ ko.bindingHandlers.rangeEnd = {
         }
         return updater;
     })()
-}
+};
 
 designerUI.laUpdateSliderRange = function (element, valueAccessor, allBindingsAccessor) {
     var slider = jQuery(element);
@@ -2299,9 +2304,9 @@ designerUI.laUpdateSliderRange = function (element, valueAccessor, allBindingsAc
             'min': [rangeStart],
             'max': [rangeEnd]
         }
-    }
+    };
     slider.noUiSlider(mergedOptions, true);
-}
+};
 
 ko.bindingHandlers.step = {
     update: (function () {
@@ -2314,14 +2319,14 @@ ko.bindingHandlers.step = {
                 var step = Number(ko.utils.unwrapObservable(isNullOrUndefined(allBindings.step) ? 50 : allBindings.step));
                 var mergedOptions = {
                     step: step
-                }
+                };
                 slider.noUiSlider(mergedOptions, true);
             }
             valuesHolder[slider.attr("id")] = rangeEnd;
-        }
+        };
         return updater;
     })()
-}
+};
 
 // Knockout checked binding doesn't work with Bootstrap radio-buttons
 //origin: https://github.com/faulknercs/Knockstrap/blob/master/src/bindings/radioBinding.js
@@ -2372,12 +2377,12 @@ designerUI.validationError = function (element, message) {
     });
     element.addClass('error');
     element.tooltip('show');
-}
+};
 
 designerUI.validationSuccess = function (element) {
     element.tooltip('destroy');
     element.removeClass('error');
-}
+};
 
 /**
  * CUSTOM KNOCKOUT BINDINGS END HERE
@@ -2581,9 +2586,11 @@ options.placeOrderHandler = null;
 
 //designer.debug();
 var defaultDesignId = decodeURI((RegExp("design_id" + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1]);
-//designer.init(document.getElementById('canvas-container'), "config/config.json", controlsUpdateHandler, options);
-//designer.init(document.getElementById('canvas-container'), AjaxRequest.ajaxurl+"?action=wcla_config_json&productid="+AjaxRequest.productid, controlsUpdateHandler, null/*, placeOrderHandler*/, defaultDesignId);
-designer.init(document.getElementById('canvas-container'), AjaxRequest.ajaxurl+"?action=wcla_config_json&productid="+AjaxRequest.productid+"&design_id="+AjaxRequest.design_id, controlsUpdateHandler, null/*, placeOrderHandler*/, options);
+designer.init(
+    document.getElementById('canvas-container'),
+    AjaxRequest.ajaxurl + "?action=wcla_config_json&productid=" + AjaxRequest.productid + "&design_id=" + AjaxRequest.design_id,
+    controlsUpdateHandler, null/*, placeOrderHandler*/, options
+);
 
 /**
  * DESIGNER INITALIZATION ENDS HERE

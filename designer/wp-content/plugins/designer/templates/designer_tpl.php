@@ -15,11 +15,11 @@
             </div>
         </div>
         <div id="products-tab" class="col-lg-5 col-lg-offset-1 hide">
-            <div id="products-search" class="search-box hello">
+            <div id="products-search" class="search-box">
                 <div class="input-group">
-                    <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
                     <input type="text" class="form-control" placeholder="Search"
                            data-bind="value: productsSearchQuery, valueUpdate: 'input'">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
                     <button class="close" aria-hidden="true"
                             data-bind="visible: productsSearchQuery().length > 0, click: clearProductsSearch">&times;</button>
                 </div>

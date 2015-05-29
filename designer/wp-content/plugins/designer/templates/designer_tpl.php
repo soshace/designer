@@ -28,6 +28,11 @@
             <a class="designer-back-btn btn1"
                data-bind="click: backProductsItem, visible: productSelectedCategories().length > 1"
                style="display:none;"></a>
+            <ul data-bind="foreach: productCategories">
+                <li>
+                    <span data-bind="text: name"></span>
+                </li>
+            </ul>
             <ul data-bind="foreach: currentProducts, css: { narrow: productSelectedCategories().length > 1 }"
                 class="thumbnails designer-categories-subcategories">
                 <li class="thumbnail"

@@ -697,6 +697,8 @@ function DEControlsModel() {
 
     self.showProductSelector = ko.observable(false);
 
+    self.productCategories = ko.observableArray();
+
     // selected product value object
     self.selectedProductVO = ko.observable(new ProductVO());
 
@@ -1909,6 +1911,7 @@ function DEControlsModel() {
         // fill product categories list
         if (isInvalid(invalidateList, 'productCategories')) {
             self.parseProducts(model.productCategories);
+            ko.utils.arrayPushAll(self.productCategories, model.productCategories);
             validate(invalidateList, 'productCategories');
         }
 
